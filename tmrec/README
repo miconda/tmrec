@@ -2,4 +2,37 @@ Time recurrence matching library
 
 Uses iCalendar (RFC 2445) format for input parameters.
 
-...
+One can use this aplication to match complex time recurences like:
+time between 18:00 and 20:00 in the second day to the end of month in
+April, May and July, every second year since the beginning (dtstart)
+of the recurence.
+
+The help message:
+
+version: tmrec 0.1.0 (i386/Linux)
+Usage: tmrec [options]
+Options:
+    --rfile file
+     -f file          File with recurence definitions
+    --stime time
+     -s time          Time to check, given as timestamp
+    --time time
+     -t time          Time to check, given as RFC 2445 DATE-TIME
+    --dtstart <val>   Start of interval (RFC 2445 DATE-TIME)
+    --dtend <val>     End of interval (RFC 2445 DATE-TIME)
+    --duration <val>  Length of interval (RFC 2445 DURATION)
+    --until <val>     Bound of recurrence (RFC 2445 DATE-TIME)
+    --freq <val>      Frequency of recurrence ("daily","weekly", 
+                      "monthly", or "yearly")
+    --interval <val>  How often the recurrence repeats
+    --byday <val>     List of days of the week
+    --bymday <val>    List of days of the month
+    --byyday <val>    List of days of the year
+    --bymonth <val>   List of months of the year
+    --byweekno <val>  List of weeks of the year
+    --version
+     -v               Version number
+    --help
+     -h               This help message
+
+More is comming soon ..

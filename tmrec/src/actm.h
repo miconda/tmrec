@@ -1,5 +1,5 @@
 /**
- * $Id: actm.h,v 1.1.1.1 2004-03-31 09:41:56 dcm Exp $
+ * $Id: actm.h,v 1.2 2004-03-31 09:58:31 dcm Exp $
  *
  * Copyright (C) 2003-2005 Fhg Fokus
  *

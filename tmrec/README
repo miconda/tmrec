@@ -5,7 +5,7 @@ Uses iCalendar (RFC 2445) format for input parameters.
 One can use this aplication to match complex time recurences like:
 time between 18:00 and 20:00 in the second day to the end of month in
 April, May and July, every second year since the beginning (dtstart)
-of the recurence.
+of the recurrence.
 
 The help message:
 
@@ -35,4 +35,63 @@ Options:
     --help
      -h               This help message
 
-More is comming soon ..
+
+Description of parameters
+(roughly from IETF CPL draft from where I took the format of time recurrence)
+
+The "dtstart" and "dtend" parameters are formatted as iCalendar COS DATE-TIME
+values, as specified in Section 4.3.5 of RFC 2445. For example:
+20040101T123000.
+
+The "duration" parameter is given as an iCalendar COS DURATION parameter, as
+specified in section 4.3.6 of RFC 2445. Both the DATE-TIME and the DURATION
+syntaxes are subsets of the corresponding syntaxes from ISO 8601. For
+example:  PT10H (ten hours). For a recurring interval, the "duration"
+parameter MUST be small enough such that subsequent intervals do not overlap.
+For non-recurring intervals, durations of any positive length are permitted.
+Zero-length and negative-length durations are not allowed.
+
+A recurrence is specified by including the "freq" parameter, which indicates
+the type of recurrence rule. Parameters other than "dtstart", "dtend", and
+"duration" SHOULD NOT be specified unless "freq" is present.
+
+The "interval" parameter contains a positive integer representing how
+often the recurrence rule repeats. The default value is "1", meaning
+every second for a "secondly" rule, every minute for a "minutely"
+rule, every hour for an "hourly" rule, every day for a "daily" rule,
+every week for a "weekly" rule, every month for a "monthly" rule and
+every year for a "yearly" rule.
+
+The "until" parameter defines an iCalendar COS DATE or DATE-TIME
+value which bounds the recurrence rule in an inclusive manner. If the
+value specified by "until" is synchronized with the specified
+recurrence, this date or date-time becomes the last instance of the recurrence.
+   
+The "bymonthday" parameter specifies a comma-separated list of days of the
+month. Valid values are 1 to 31 or -31 to -1. For example, -10 represents the
+tenth to the last day of the month.
+
+The "byday" parameter specifies a comma-separated list of days of the week.
+"MO" indicates Monday; "TU" indicates Tuesday; "WE" indicates Wednesday; "TH"
+indicates Thursday; "FR" indicates Friday; "SA" indicates Saturday; "SU"
+indicates Sunday. These values are not case-sensitive. Each "byday" value can
+also be preceded by a positive (+n) or negative (-n) integer. If present, this
+indicates the nth occurrence of the specific day within the "monthly" or
+"yearly" recurrence. For example, within a "monthly" rule, +1MO (or simply
+1MO) represents the first Monday within the month, whereas -1MO represents the
+last Monday of the month. If an integer modifier is not present, it means
+all days of this type within the specified frequency. For example, within a
+"monthly" rule, MO represents all Mondays within the month.
+
+The "byyearday" parameter specifies a comma-separated list of days of the
+year. Valid values are 1 to 366 or -366 to -1. For example, -1 represents the
+last day of the year (December 31st) and -306 represents the 306th to the
+last day of the year (March 1st).
+   
+The "bymonth" parameter specifies a comma-separated list of months of the
+year. Valid values are 1 to 12.
+
+The "byweekno" parameter specifies a comma-separated list of ordinals
+specifying weeks of the year. Valid values are 1 to 53 or -53 to -1. This
+corresponds to weeks according to week numbering as defined in ISO 8601.
+

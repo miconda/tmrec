@@ -1,0 +1,10 @@
+# $Id: Makefile.defs,v 1.1.1.1 2004-03-31 09:41:56 dcm Exp $
+#
+# defines
+
+
+NAME=tmrec
+RELEASE=0.1.0
+BIN=tmrec
+SRC=src
+

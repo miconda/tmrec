@@ -1,0 +1,5 @@
+Time recurrence matching library
+
+Uses iCalendar (RFC 2445) format for input parameters.
+
+...
